@@ -11,7 +11,11 @@
 #import "Account.h"
 #import "KeychainHelper.h"
 #import "HomeViewController.h"
+#import "AccountValidator.h"
+#import "ImageHelper.h"
+#import <QuartzCore/QuartzCore.h>
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *signInButton;
 @property (strong, nonatomic) NSManagedObjectContext* _managedContext;
 @property (weak, nonatomic) IBOutlet UITextField *_username;
 @property (weak, nonatomic) IBOutlet UITextField *_password;
@@ -21,14 +25,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self._managedContext = appDelegate.managedObjectContext;
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"imageName.png"]];
-    // Do any additional setup after loading the view.
+    
+    UIImage *image = [ImageHelper blurImage:[UIImage imageNamed:@"image2.jpg"]];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
+    bgImageView.frame = self.view.bounds;
+    [self.view addSubview:bgImageView];
+    [self.view sendSubviewToBack:bgImageView];
+    
+    self.signInButton.enabled = false;
+    [self styleButton:self.signInButton];
+    [self._username addTarget:self action:@selector(checkUsername:) forControlEvents:UIControlEventEditingChanged];
+    [self._password addTarget:self action:@selector(checkTextField:) forControlEvents:UIControlEventEditingChanged];
+}
+-(void)styleButton:(UIButton*) button{
+    
+    CALayer *layer = button.layer;
+    UIColor *myColor = [UIColor colorWithRed:50.0 green:50.0 blue:50.0 alpha:0.5];
+    layer.backgroundColor = [myColor CGColor];
+    layer.borderColor = [[UIColor darkGrayColor] CGColor];
+    layer.cornerRadius = 8.0f;
+    layer.borderWidth = 1.0f;
+}
+-(void)checkUsername:(id)sender{
+    UITextField *textField = (UITextField *)sender;
+    BOOL isValid = [AccountValidator validateUsername:textField.text];
+    NSLog(@"%d", isValid);
+    if (isValid) {
+        self.signInButton.enabled = true;
+    } else {
+        textField.textColor = [UIColor redColor];
+    }
+}
+- (void)checkTextField:(id)sender{
+    UITextField *textField = (UITextField *)sender;
+    BOOL isValid = [AccountValidator validatePassword:textField.text];
+    NSLog(@"%d", isValid);
+    if (isValid) {
+        textField.textColor = [UIColor greenColor];
+    } else {
+        textField.textColor = [UIColor redColor];
+    }
 }
 - (IBAction)signInTaped:(id)sender {
     if([[KeychainHelper secureValueForKey:self._username.text] isEqualToString:self._password.text]){
-        
         HomeViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
         viewController.username = self._username.text;
         [self presentViewController:viewController animated:YES completion:nil];

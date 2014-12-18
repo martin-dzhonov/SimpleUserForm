@@ -21,10 +21,21 @@
 }
 + (BOOL) validatePassword:(NSString *)password{
     //at least one number, at least one special symbol, 8-32 characters long
-   
-    NSString *passwordRegex = @"^(?=.*\d)(?=.*[A-Za-z]).{8,32}$";
-    NSPredicate *passwordTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passwordRegex];
+    NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"01234567890"];
+    NSCharacterSet *specialChars = [NSCharacterSet characterSetWithCharactersInString:@"!@#$%^&*()[]`=_-:<>,"];
     
-    return [passwordTest evaluateWithObject:password];
+    if ( [password length]<8 || [password length]>32 ){
+        return false;
+    }
+    NSRange rang;
+    rang = [password rangeOfCharacterFromSet:numbers];
+    if ( !rang.length ){
+        return false;
+    }
+    rang = [password rangeOfCharacterFromSet:specialChars];
+    if(!rang.length){
+        return false;
+    }
+    return true;
 }
 @end

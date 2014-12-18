@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Account.h"
 #import "AccountValidator.h"
+#import "ImageHelper.h"
 @interface RegisterViewController ()
 
 @property (strong, nonatomic) NSManagedObjectContext * _managedContext;
@@ -27,8 +28,19 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self._managedContext = appDelegate.managedObjectContext;
+    
+    
+    
     [self._username addTarget:self action:@selector(checkUsername:) forControlEvents:UIControlEventEditingChanged];
     [self._password addTarget:self action:@selector(checkTextField:) forControlEvents:UIControlEventEditingChanged];
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    UIImage *image = [ImageHelper blurImage:[UIImage imageNamed:@"image2.jpg"]];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
+    bgImageView.frame = self.view.bounds;
+    [self.view addSubview:bgImageView];
+    [self.view sendSubviewToBack:bgImageView];
 }
 -(void)checkUsername:(id)sender{
     UITextField *textField = (UITextField *)sender;

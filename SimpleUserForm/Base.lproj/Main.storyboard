@@ -60,15 +60,6 @@
                                     <segue destination="FVx-Pa-ARr" kind="show" identifier="ToHome" id="red-wM-uFa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37c-Fn-U2r">
-                                <rect key="frame" x="280" y="173" width="48" height="30"/>
-                                <state key="normal" title="Sign In">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="signInTaped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Nii-kP-DmZ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVE-TN-Vwn">
                                 <rect key="frame" x="277" y="211" width="55" height="30"/>
                                 <state key="normal" title="Sign Up">
@@ -77,6 +68,15 @@
                                 <connections>
                                     <action selector="signUpTaped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="T0N-Qj-9OO"/>
                                     <segue destination="eFk-vZ-juc" kind="show" id="yMJ-Kt-KP9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37c-Fn-U2r">
+                                <rect key="frame" x="280" y="173" width="48" height="30"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInTaped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Nii-kP-DmZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -102,6 +102,7 @@
                     <connections>
                         <outlet property="_password" destination="d7I-2t-EgA" id="pR7-vp-Cq7"/>
                         <outlet property="_username" destination="1Kh-XO-vXi" id="Ep1-vu-6zI"/>
+                        <outlet property="signInButton" destination="37c-Fn-U2r" id="Z86-mG-8JB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
