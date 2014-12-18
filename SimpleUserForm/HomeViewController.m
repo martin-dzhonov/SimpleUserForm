@@ -7,8 +7,12 @@
 //
 
 #import "HomeViewController.h"
-
+#import "LoginViewController.h"
+#import "AppDelegate.h"
+#import "Account.h"
+#import "KeychainHelper.h"
 @interface HomeViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *_welcomeLabel;
 
 @end
 
@@ -16,6 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = appDelegate.managedObjectContext;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Account"];
+    
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"SELF.username == %@", self.username];
+    NSArray *results = [context executeFetchRequest:fetchRequest error:nil];
+    Account* acc = (Account*)[results objectAtIndex:0];
+    self._welcomeLabel.text = acc.username;
     // Do any additional setup after loading the view.
 }
 

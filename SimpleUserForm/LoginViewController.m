@@ -14,7 +14,6 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *_username;
 @property (weak, nonatomic) IBOutlet UITextField *_password;
-
 @end
 
 @implementation LoginViewController
@@ -25,8 +24,12 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)signInTaped:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = appDelegate.managedObjectContext;
     if([[KeychainHelper secureValueForKey:self._username.text] isEqualToString:self._password.text]){
+        
         HomeViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
+        viewController.username = self._username.text;
         [self presentViewController:viewController animated:YES completion:nil];
     }
     else{
@@ -70,7 +73,7 @@
     else {
         for (int i=0; i < results.count; i++) {
             Account* acc = (Account*)[results objectAtIndex:i];
-            NSLog(@"%@", [acc valueForKey:@"gender"]);
+            NSLog(@"%@", [acc valueForKey:@"username"]);
         }
     }
 

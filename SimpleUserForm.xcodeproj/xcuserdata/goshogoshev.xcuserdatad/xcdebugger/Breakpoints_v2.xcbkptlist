@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SimpleUserForm/LoginViewController.m"
-            timestampString = "440598287.933412"
+            timestampString = "440600699.800312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "-signInTaped:"
             landmarkType = "5">
          </BreakpointContent>
