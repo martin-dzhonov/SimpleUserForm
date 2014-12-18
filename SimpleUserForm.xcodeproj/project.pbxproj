@@ -84,6 +84,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		209D4FE91A43445C00D97E9B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				20AF20591A42193200E11CCC /* LoginViewController.h */,
+				20AF205A1A42193200E11CCC /* LoginViewController.m */,
+				20A0B68A1A42E3EC00E40306 /* RegisterViewController.h */,
+				20A0B68B1A42E3EC00E40306 /* RegisterViewController.m */,
+				200478051A42FA7A0058510C /* HomeViewController.h */,
+				200478061A42FA7A0058510C /* HomeViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		209D4FEA1A43447A00D97E9B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				209D4FE41A43397B00D97E9B /* image2.jpg */,
+				209D4FE21A4333F700D97E9B /* image1.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		209D4FEB1A43449F00D97E9B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				208431E91A42E94600E77A5A /* KeychainHelper.h */,
+				208431EA1A42E94600E77A5A /* KeychainHelper.m */,
+				209D4FDF1A43250300D97E9B /* AccountValidator.h */,
+				209D4FE01A43250300D97E9B /* AccountValidator.m */,
+				209D4FE61A4339B000D97E9B /* ImageHelper.h */,
+				209D4FE71A4339B000D97E9B /* ImageHelper.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		20AF20241A4218BC00E11CCC = {
 			isa = PBXGroup;
 			children = (
@@ -105,22 +140,11 @@
 		20AF202F1A4218BC00E11CCC /* SimpleUserForm */ = {
 			isa = PBXGroup;
 			children = (
-				209D4FE61A4339B000D97E9B /* ImageHelper.h */,
-				209D4FE71A4339B000D97E9B /* ImageHelper.m */,
-				209D4FE41A43397B00D97E9B /* image2.jpg */,
-				209D4FE21A4333F700D97E9B /* image1.jpg */,
-				209D4FDF1A43250300D97E9B /* AccountValidator.h */,
-				209D4FE01A43250300D97E9B /* AccountValidator.m */,
-				200478051A42FA7A0058510C /* HomeViewController.h */,
-				200478061A42FA7A0058510C /* HomeViewController.m */,
-				208431E91A42E94600E77A5A /* KeychainHelper.h */,
-				208431EA1A42E94600E77A5A /* KeychainHelper.m */,
+				209D4FE91A43445C00D97E9B /* Controllers */,
+				209D4FEB1A43449F00D97E9B /* Utils */,
+				209D4FEA1A43447A00D97E9B /* Images */,
 				20A0B6871A42DD2800E40306 /* Account.h */,
 				20A0B6881A42DD2800E40306 /* Account.m */,
-				20A0B68A1A42E3EC00E40306 /* RegisterViewController.h */,
-				20A0B68B1A42E3EC00E40306 /* RegisterViewController.m */,
-				20AF20591A42193200E11CCC /* LoginViewController.h */,
-				20AF205A1A42193200E11CCC /* LoginViewController.m */,
 				20AF20341A4218BC00E11CCC /* AppDelegate.h */,
 				20AF20351A4218BC00E11CCC /* AppDelegate.m */,
 				20AF203D1A4218BC00E11CCC /* Main.storyboard */,

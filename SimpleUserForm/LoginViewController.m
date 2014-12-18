@@ -14,7 +14,11 @@
 #import "AccountValidator.h"
 #import "ImageHelper.h"
 #import <QuartzCore/QuartzCore.h>
-@interface LoginViewController ()
+
+@interface LoginViewController (){
+    BOOL _usernameValid;
+    BOOL _passwordValid;
+}
 @property (weak, nonatomic) IBOutlet UIButton *signInButton;
 @property (strong, nonatomic) NSManagedObjectContext* _managedContext;
 @property (weak, nonatomic) IBOutlet UITextField *_username;
@@ -29,19 +33,24 @@
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self._managedContext = appDelegate.managedObjectContext;
     
-    UIImage *image = [ImageHelper blurImage:[UIImage imageNamed:@"image2.jpg"]];
+    [self initBackgroundImage];
+    
+    self.signInButton.enabled = false;
+    [self styleButton:self.signInButton];
+    
+    [self._username addTarget:self action:@selector(checkUsername:) forControlEvents:UIControlEventEditingChanged];
+    [self._password addTarget:self action:@selector(checkPassword:) forControlEvents:UIControlEventEditingChanged];
+}
+
+-(void) initBackgroundImage{
+    UIImage *image = [UIImage imageNamed:@"image1.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image2.jpg"]];
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
     bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];
     [self.view sendSubviewToBack:bgImageView];
-    
-    self.signInButton.enabled = false;
-    [self styleButton:self.signInButton];
-    [self._username addTarget:self action:@selector(checkUsername:) forControlEvents:UIControlEventEditingChanged];
-    [self._password addTarget:self action:@selector(checkTextField:) forControlEvents:UIControlEventEditingChanged];
 }
+
 -(void)styleButton:(UIButton*) button{
-    
     CALayer *layer = button.layer;
     UIColor *myColor = [UIColor colorWithRed:50.0 green:50.0 blue:50.0 alpha:0.5];
     layer.backgroundColor = [myColor CGColor];
@@ -49,24 +58,34 @@
     layer.cornerRadius = 8.0f;
     layer.borderWidth = 1.0f;
 }
+
 -(void)checkUsername:(id)sender{
     UITextField *textField = (UITextField *)sender;
     BOOL isValid = [AccountValidator validateUsername:textField.text];
-    NSLog(@"%d", isValid);
     if (isValid) {
-        self.signInButton.enabled = true;
+        textField.textColor = [UIColor blackColor];
+        _usernameValid = true;
+        if(_usernameValid && _passwordValid){
+            self.signInButton.enabled = true;
+        }
     } else {
         textField.textColor = [UIColor redColor];
+        self.signInButton.enabled= false;
     }
 }
-- (void)checkTextField:(id)sender{
+
+- (void)checkPassword:(id)sender{
     UITextField *textField = (UITextField *)sender;
     BOOL isValid = [AccountValidator validatePassword:textField.text];
-    NSLog(@"%d", isValid);
     if (isValid) {
-        textField.textColor = [UIColor greenColor];
+        textField.textColor = [UIColor blackColor];
+        _passwordValid = true;
+        if(_passwordValid && _usernameValid){
+            self.signInButton.enabled = true;
+        }
     } else {
         textField.textColor = [UIColor redColor];
+        self.signInButton.enabled = true;
     }
 }
 - (IBAction)signInTaped:(id)sender {
@@ -81,44 +100,6 @@
 }
 
 - (IBAction)signUpTaped:(id)sender {
-}
-
-- (IBAction)clearTaped:(id)sender {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Account"];
-    [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
-    
-    NSError *error;
-    NSArray *fetchedObjects = [self._managedContext executeFetchRequest:fetchRequest error:&error];
-    for (NSManagedObject *object in fetchedObjects)
-    {
-        [self._managedContext deleteObject:object];
-    }
-    
-    error = nil;
-    [self._managedContext save:&error];
-}
-
-- (IBAction)saveTaped:(id)sender {
-}
-
-- (IBAction)fetchTaped:(id)sender {
-    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Account"];
-    
-    NSError *error = nil;
-    
-    NSArray *results = [self._managedContext executeFetchRequest:request error:&error];
-    
-    if (error != nil) {
-        
-        NSLog(@"ERROR");
-    }
-    else {
-        for (int i=0; i < results.count; i++) {
-            Account* acc = (Account*)[results objectAtIndex:i];
-            NSLog(@"%@", [acc valueForKey:@"username"]);
-        }
-    }
-
 }
 
 - (void)didReceiveMemoryWarning {
