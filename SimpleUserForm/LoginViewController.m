@@ -36,8 +36,10 @@
         NSLog(@"FAIL");
     }
 }
+
 - (IBAction)signUpTaped:(id)sender {
 }
+
 - (IBAction)clearTaped:(id)sender {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Account"];
     [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
@@ -52,9 +54,10 @@
     error = nil;
     [self._managedContext save:&error];
 }
+
 - (IBAction)saveTaped:(id)sender {
-    
 }
+
 - (IBAction)fetchTaped:(id)sender {
     NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Account"];
     

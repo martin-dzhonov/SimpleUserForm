@@ -10,12 +10,14 @@
 #import "AppDelegate.h"
 #import "Account.h"
 @interface RegisterViewController ()
-@property (strong, nonatomic) NSManagedObjectContext* _managedContext;
+
+@property (strong, nonatomic) NSManagedObjectContext * _managedContext;
 @property (weak, nonatomic) IBOutlet UITextField *_firstName;
 @property (weak, nonatomic) IBOutlet UITextField *_lastName;
 @property (weak, nonatomic) IBOutlet UITextField *_username;
 @property (weak, nonatomic) IBOutlet UITextField *_password;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *_gender;
+
 @end
 
 @implementation RegisterViewController
@@ -25,22 +27,19 @@
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self._managedContext = appDelegate.managedObjectContext;
     [self._firstName addTarget:self action:@selector(checkTextField:) forControlEvents:UIControlEventEditingChanged];
-    // Do any additional setup after loading the view.
 }
 - (void)checkTextField:(id)sender{
     UITextField *textField = (UITextField *)sender;
     if ([textField.text length] == 8) {
-        textField.textColor = [UIColor greenColor]; // No cargo-culting please, this color is very ugly...
+        textField.textColor = [UIColor greenColor];
     } else {
         textField.textColor = [UIColor redColor];
-        /* Must be done in case the user deletes a key after adding 8 digits,
-         or adds a ninth digit */
     }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)doneTaped:(id)sender {
     Account *newAccount;
     newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:self._managedContext];
