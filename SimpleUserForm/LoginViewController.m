@@ -79,6 +79,7 @@
 
 -(void)styleButton:(UIButton*) button{
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont fontWithName:@"LuzSans-Book" size:16];
     CALayer *layer = button.layer;
     UIColor *myColor = [UIColor colorWithRed:20.0 green:125.0 blue:75.0 alpha:0.4];
     layer.backgroundColor = [myColor CGColor];

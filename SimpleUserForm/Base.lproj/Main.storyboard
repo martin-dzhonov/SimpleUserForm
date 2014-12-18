@@ -17,25 +17,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Kh-XO-vXi">
-                                <rect key="frame" x="194" y="210" width="212" height="30"/>
+                                <rect key="frame" x="194" y="211" width="212" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="212" id="nXK-DN-pQ4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVE-TN-Vwn">
-                                <rect key="frame" x="273" y="359" width="55" height="30"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUpTaped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="T0N-Qj-9OO"/>
-                                    <segue destination="eFk-vZ-juc" kind="show" id="yMJ-Kt-KP9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37c-Fn-U2r">
-                                <rect key="frame" x="276" y="321" width="48" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37c-Fn-U2r">
+                                <rect key="frame" x="265" y="319" width="70" height="40"/>
+                                <rect key="contentStretch" x="0.10000000000000002" y="0.10000000000000001" width="1" height="1"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -44,17 +36,33 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d7I-2t-EgA">
-                                <rect key="frame" x="194" y="262" width="212" height="30"/>
+                                <rect key="frame" x="194" y="263" width="212" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZ8-SU-WAD">
+                                <rect key="frame" x="443" y="325" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVE-TN-Vwn">
+                                <rect key="frame" x="343" y="320" width="92" height="39"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpTaped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="T0N-Qj-9OO"/>
+                                    <segue destination="eFk-vZ-juc" kind="show" id="yMJ-Kt-KP9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1Kh-XO-vXi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="190" id="0XB-bA-g3J"/>
+                            <constraint firstItem="1Kh-XO-vXi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="191" id="0XB-bA-g3J"/>
                             <constraint firstItem="d7I-2t-EgA" firstAttribute="top" secondItem="1Kh-XO-vXi" secondAttribute="bottom" constant="22" id="8QV-OE-yvZ"/>
                             <constraint firstItem="37c-Fn-U2r" firstAttribute="centerX" secondItem="aVE-TN-Vwn" secondAttribute="centerX" id="9sG-PB-b5S"/>
-                            <constraint firstItem="37c-Fn-U2r" firstAttribute="top" secondItem="d7I-2t-EgA" secondAttribute="bottom" constant="29" id="BJQ-py-loJ"/>
+                            <constraint firstItem="37c-Fn-U2r" firstAttribute="top" secondItem="d7I-2t-EgA" secondAttribute="bottom" constant="26" id="BJQ-py-loJ"/>
                             <constraint firstItem="d7I-2t-EgA" firstAttribute="trailing" secondItem="1Kh-XO-vXi" secondAttribute="trailing" id="EzD-an-rp3"/>
                             <constraint firstItem="aVE-TN-Vwn" firstAttribute="top" secondItem="37c-Fn-U2r" secondAttribute="bottom" constant="8" symbolic="YES" id="RZh-vH-Meq"/>
                             <constraint firstItem="1Kh-XO-vXi" firstAttribute="leading" secondItem="d7I-2t-EgA" secondAttribute="leading" id="l3h-NC-sLu"/>
