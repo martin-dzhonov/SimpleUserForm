@@ -23,6 +23,7 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self._managedContext = appDelegate.managedObjectContext;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"imageName.png"]];
     // Do any additional setup after loading the view.
 }
 - (IBAction)signInTaped:(id)sender {

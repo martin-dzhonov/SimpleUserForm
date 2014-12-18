@@ -9,6 +9,7 @@
 #import "RegisterViewController.h"
 #import "AppDelegate.h"
 #import "Account.h"
+#import "AccountValidator.h"
 @interface RegisterViewController ()
 
 @property (strong, nonatomic) NSManagedObjectContext * _managedContext;
@@ -26,11 +27,24 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self._managedContext = appDelegate.managedObjectContext;
-    [self._firstName addTarget:self action:@selector(checkTextField:) forControlEvents:UIControlEventEditingChanged];
+    [self._username addTarget:self action:@selector(checkUsername:) forControlEvents:UIControlEventEditingChanged];
+    [self._password addTarget:self action:@selector(checkTextField:) forControlEvents:UIControlEventEditingChanged];
+}
+-(void)checkUsername:(id)sender{
+    UITextField *textField = (UITextField *)sender;
+    BOOL isValid = [AccountValidator validateUsername:textField.text];
+    NSLog(@"%d", isValid);
+    if (isValid) {
+        textField.textColor = [UIColor greenColor];
+    } else {
+        textField.textColor = [UIColor redColor];
+    }
 }
 - (void)checkTextField:(id)sender{
     UITextField *textField = (UITextField *)sender;
-    if ([textField.text length] == 8) {
+    BOOL isValid = [AccountValidator validatePassword:textField.text];
+    NSLog(@"%d", isValid);
+    if (isValid) {
         textField.textColor = [UIColor greenColor];
     } else {
         textField.textColor = [UIColor redColor];
