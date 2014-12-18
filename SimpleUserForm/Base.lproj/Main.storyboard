@@ -45,15 +45,6 @@
                                     <action selector="fetchTaped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Rs9-t6-6fe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hob-35-ByA">
-                                <rect key="frame" x="281" y="249" width="34" height="30"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveTaped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="reA-OQ-Bap"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KjZ-go-JNC">
                                 <rect key="frame" x="281" y="323" width="46" height="30"/>
                                 <state key="normal" title="Clear">
@@ -61,6 +52,7 @@
                                 </state>
                                 <connections>
                                     <action selector="clearTaped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Pyq-ho-sHx"/>
+                                    <segue destination="FVx-Pa-ARr" kind="show" identifier="ToHome" id="red-wM-uFa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37c-Fn-U2r">
@@ -70,6 +62,15 @@
                                 </state>
                                 <connections>
                                     <action selector="signInTaped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Nii-kP-DmZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hob-35-ByA">
+                                <rect key="frame" x="281" y="249" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveTaped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="reA-OQ-Bap"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -82,6 +83,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="102" y="136"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="MvP-AD-Rv4">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="FVx-Pa-ARr" customClass="HomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3c4-eC-G9e"/>
+                        <viewControllerLayoutGuide type="bottom" id="ECN-W9-WnE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="41o-n5-bTC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mt8-tw-Kla">
+                                <rect key="frame" x="269" y="28" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CbW-gP-Vul" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="102" y="875"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="ekl-0f-GjD">

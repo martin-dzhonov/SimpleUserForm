@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Account.h"
 #import "KeychainHelper.h"
+#import "HomeViewController.h"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *_username;
 @property (weak, nonatomic) IBOutlet UITextField *_password;
@@ -25,7 +26,8 @@
 }
 - (IBAction)signInTaped:(id)sender {
     if([[KeychainHelper secureValueForKey:self._username.text] isEqualToString:self._password.text]){
-        NSLog(@"LOGIN SUCESS");
+        HomeViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
+        [self presentViewController:viewController animated:YES completion:nil];
     }
     else{
         NSLog(@"FAIL");

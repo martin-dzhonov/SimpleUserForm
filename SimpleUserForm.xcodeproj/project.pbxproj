@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200478071A42FA7A0058510C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 200478061A42FA7A0058510C /* HomeViewController.m */; };
 		208431EB1A42E94600E77A5A /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 208431EA1A42E94600E77A5A /* KeychainHelper.m */; };
 		20A0B6891A42DD2800E40306 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0B6881A42DD2800E40306 /* Account.m */; };
 		20A0B68C1A42E3EC00E40306 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0B68B1A42E3EC00E40306 /* RegisterViewController.m */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		200478051A42FA7A0058510C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		200478061A42FA7A0058510C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		208431E91A42E94600E77A5A /* KeychainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainHelper.h; sourceTree = "<group>"; };
 		208431EA1A42E94600E77A5A /* KeychainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainHelper.m; sourceTree = "<group>"; };
 		20A0B6871A42DD2800E40306 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 		20AF202F1A4218BC00E11CCC /* SimpleUserForm */ = {
 			isa = PBXGroup;
 			children = (
+				200478051A42FA7A0058510C /* HomeViewController.h */,
+				200478061A42FA7A0058510C /* HomeViewController.m */,
 				208431E91A42E94600E77A5A /* KeychainHelper.h */,
 				208431EA1A42E94600E77A5A /* KeychainHelper.m */,
 				20A0B6871A42DD2800E40306 /* Account.h */,
@@ -244,6 +249,7 @@
 				208431EB1A42E94600E77A5A /* KeychainHelper.m in Sources */,
 				20A0B6891A42DD2800E40306 /* Account.m in Sources */,
 				20AF20391A4218BC00E11CCC /* SimpleUserForm.xcdatamodeld in Sources */,
+				200478071A42FA7A0058510C /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
