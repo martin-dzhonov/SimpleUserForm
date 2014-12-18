@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Account.h"
 @interface RegisterViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *_firstName;
 @property (weak, nonatomic) IBOutlet UITextField *_lastName;
 @property (weak, nonatomic) IBOutlet UITextField *_username;
@@ -21,9 +22,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self._firstName addTarget:self action:@selector(checkTextField:) forControlEvents:UIControlEventEditingChanged];
     // Do any additional setup after loading the view.
 }
-
+- (void)checkTextField:(id)sender{
+    UITextField *textField = (UITextField *)sender;
+    if ([textField.text length] == 8) {
+        textField.textColor = [UIColor greenColor]; // No cargo-culting please, this color is very ugly...
+    } else {
+        textField.textColor = [UIColor redColor];
+        /* Must be done in case the user deletes a key after adding 8 digits,
+         or adds a ninth digit */
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
