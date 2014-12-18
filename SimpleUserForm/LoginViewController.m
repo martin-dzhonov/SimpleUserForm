@@ -20,6 +20,7 @@
     BOOL _passwordValid;
 }
 @property (weak, nonatomic) IBOutlet UIButton *signInButton;
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 @property (strong, nonatomic) NSManagedObjectContext* _managedContext;
 @property (weak, nonatomic) IBOutlet UITextField *_username;
 @property (weak, nonatomic) IBOutlet UITextField *_password;
@@ -37,6 +38,7 @@
     
     self.signInButton.enabled = false;
     [self styleButton:self.signInButton];
+    [self styleButton:self.signUpButton];
     
     [self._username addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
     [self._password addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
@@ -68,7 +70,7 @@
     }
 }
 -(void) initBackgroundImage{
-    UIImage *image = [UIImage imageNamed:@"image1.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image2.jpg"]];
+    UIImage *image = [UIImage imageNamed:@"image3.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image2.jpg"]];
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
     bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];
@@ -76,12 +78,14 @@
 }
 
 -(void)styleButton:(UIButton*) button{
+    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     CALayer *layer = button.layer;
-    UIColor *myColor = [UIColor colorWithRed:50.0 green:50.0 blue:50.0 alpha:0.5];
+    UIColor *myColor = [UIColor colorWithRed:20.0 green:125.0 blue:75.0 alpha:0.4];
     layer.backgroundColor = [myColor CGColor];
     layer.borderColor = [[UIColor darkGrayColor] CGColor];
-    layer.cornerRadius = 8.0f;
+    layer.cornerRadius = 2.0f;
     layer.borderWidth = 1.0f;
+
 }
 
 - (IBAction)signInTaped:(id)sender {
@@ -91,7 +95,11 @@
         [self presentViewController:viewController animated:YES completion:nil];
     }
     else{
-        NSLog(@"FAIL");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error."
+                                                        message:@"Invalid username/password."                                                  delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }
 }
 

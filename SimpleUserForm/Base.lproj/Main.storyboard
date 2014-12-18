@@ -66,6 +66,7 @@
                         <outlet property="_password" destination="d7I-2t-EgA" id="pR7-vp-Cq7"/>
                         <outlet property="_username" destination="1Kh-XO-vXi" id="Ep1-vu-6zI"/>
                         <outlet property="signInButton" destination="37c-Fn-U2r" id="Z86-mG-8JB"/>
+                        <outlet property="signUpButton" destination="aVE-TN-Vwn" id="LCZ-Jz-AKV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

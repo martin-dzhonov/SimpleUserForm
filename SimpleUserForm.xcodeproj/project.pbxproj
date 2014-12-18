@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		200478071A42FA7A0058510C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 200478061A42FA7A0058510C /* HomeViewController.m */; };
 		208431EB1A42E94600E77A5A /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 208431EA1A42E94600E77A5A /* KeychainHelper.m */; };
+		209C14601A43666F00F3A0DA /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 209C145F1A43666F00F3A0DA /* image3.jpg */; };
 		209D4FE11A43250300D97E9B /* AccountValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 209D4FE01A43250300D97E9B /* AccountValidator.m */; };
 		209D4FE31A4333F700D97E9B /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 209D4FE21A4333F700D97E9B /* image1.jpg */; };
 		209D4FE51A43397B00D97E9B /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 209D4FE41A43397B00D97E9B /* image2.jpg */; };
@@ -40,6 +41,7 @@
 		200478061A42FA7A0058510C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		208431E91A42E94600E77A5A /* KeychainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainHelper.h; sourceTree = "<group>"; };
 		208431EA1A42E94600E77A5A /* KeychainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainHelper.m; sourceTree = "<group>"; };
+		209C145F1A43666F00F3A0DA /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
 		209D4FDF1A43250300D97E9B /* AccountValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountValidator.h; sourceTree = "<group>"; };
 		209D4FE01A43250300D97E9B /* AccountValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountValidator.m; sourceTree = "<group>"; };
 		209D4FE21A4333F700D97E9B /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		209D4FEA1A43447A00D97E9B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				209C145F1A43666F00F3A0DA /* image3.jpg */,
 				209D4FE41A43397B00D97E9B /* image2.jpg */,
 				209D4FE21A4333F700D97E9B /* image1.jpg */,
 			);
@@ -265,6 +268,7 @@
 				20AF203F1A4218BC00E11CCC /* Main.storyboard in Resources */,
 				209D4FE51A43397B00D97E9B /* image2.jpg in Resources */,
 				209D4FE31A4333F700D97E9B /* image1.jpg in Resources */,
+				209C14601A43666F00F3A0DA /* image3.jpg in Resources */,
 				20AF20441A4218BC00E11CCC /* LaunchScreen.xib in Resources */,
 				20AF20411A4218BC00E11CCC /* Images.xcassets in Resources */,
 			);
