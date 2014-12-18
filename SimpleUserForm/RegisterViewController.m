@@ -11,6 +11,7 @@
 #import "Account.h"
 #import "AccountValidator.h"
 #import "ImageHelper.h"
+#import "LoginViewController.h"
 @interface RegisterViewController ()
 {
     BOOL _usernameValid;
@@ -33,13 +34,16 @@
     self._managedContext = appDelegate.managedObjectContext;
     
     self.doneButton.enabled = false;
-    
+    [self styleButton:self.doneButton];
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateSelected];
+    self._gender.tintColor = [UIColor greenColor];
+
     [self._username addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
     [self._password addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    UIImage *image = [UIImage imageNamed:@"image4.jpg"];
+    UIImage *image = [UIImage imageNamed:@"image6.jpg"];
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
     bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];
@@ -90,8 +94,23 @@
     }
     NSError *error;
     [self._managedContext save:&error];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success."
+                                                    message:@"Account registered."                                                  delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    LoginViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
-
+-(void)styleButton:(UIButton*) button{
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    [button setBackgroundColor:[UIColor colorWithRed:0 green:255 blue:0 alpha:0.4]];
+    CALayer *layer = button.layer;
+    layer.borderColor = [[UIColor blackColor] CGColor];
+    layer.cornerRadius = 2.0f;
+    layer.borderWidth = 1.0f;
+}
 /*
  #pragma mark - Navigation
  

@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SimpleUserForm/RegisterViewController.m"
-            timestampString = "440617709.822576"
+            timestampString = "440630964.526492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "-doneTaped:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SimpleUserForm/LoginViewController.m"
-            timestampString = "440627721.358675"
+            timestampString = "440630678.158146"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "-signInTaped:"
             landmarkType = "5">
          </BreakpointContent>

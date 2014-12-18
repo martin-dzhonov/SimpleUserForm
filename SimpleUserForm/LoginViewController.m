@@ -70,7 +70,7 @@
     }
 }
 -(void) initBackgroundImage{
-    UIImage *image = [UIImage imageNamed:@"image5.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image2.jpg"]];
+    UIImage *image = [UIImage imageNamed:@"image6.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image2.jpg"]];
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
     bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];
@@ -82,12 +82,9 @@
     [button setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [button setBackgroundColor:[UIColor colorWithRed:0 green:255 blue:0 alpha:0.4]];
     CALayer *layer = button.layer;
-    //UIColor *myColor = [UIColor colorWithRed:8.0 green:8.0 blue:8.0 alpha:0.4];
-    //layer.backgroundColor = [myColor CGColor];
     layer.borderColor = [[UIColor blackColor] CGColor];
     layer.cornerRadius = 2.0f;
     layer.borderWidth = 1.0f;
-
 }
 
 - (IBAction)signInTaped:(id)sender {
