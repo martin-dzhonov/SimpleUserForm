@@ -7,7 +7,7 @@
 //
 
 #import "Account.h"
-
+#import "KeychainHelper.h"
 
 @implementation Account
 
@@ -15,5 +15,16 @@
 @dynamic gender;
 @dynamic lastName;
 @dynamic username;
+- (NSString*)password
+{
+    if (self.username)
+        return [KeychainHelper secureValueForKey:self.username];
+    return nil;
+}
 
+- (void)setPassword:(NSString*)aPassword
+{
+    if (self.username)
+        [KeychainHelper setSecureValue:aPassword forKey:self.username];
+}
 @end

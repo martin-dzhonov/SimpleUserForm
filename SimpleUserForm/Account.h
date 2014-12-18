@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSString * gender;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSString * username;
-
+- (NSString*)password;
+- (void)setPassword:(NSString*)aPassword;
 @end

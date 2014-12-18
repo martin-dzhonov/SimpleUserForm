@@ -25,7 +25,24 @@
     [KeychainHelper setSecureValue:@"TESTVALUE" forKey:@"TESTKEY"];
 }
 - (IBAction)fetchTaped:(id)sender {
-    NSLog(@"%@",[KeychainHelper secureValueForKey:@"TESTKEY"]);
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = appDelegate.managedObjectContext;
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Account"];
+    
+    NSError *error = nil;
+    
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    
+    if (error != nil) {
+        
+        NSLog(@"ERROR");
+    }
+    else {
+        for (int i=0; i < results.count; i++) {
+            Account* acc = (Account*)[results objectAtIndex:i];
+            NSLog(@"%@", [acc password]);
+        }
+    }
 
 }
 

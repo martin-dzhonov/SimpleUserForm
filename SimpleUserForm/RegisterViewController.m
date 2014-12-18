@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *_firstName;
 @property (weak, nonatomic) IBOutlet UITextField *_lastName;
 @property (weak, nonatomic) IBOutlet UITextField *_username;
+@property (weak, nonatomic) IBOutlet UITextField *_password;
 
 @end
 
@@ -35,6 +36,7 @@
     newAccount.firstName = self._firstName.text;
     newAccount.lastName = self._lastName.text;
     newAccount.username = self._username.text;
+    [newAccount setPassword:self._password.text];
     NSError *error;
     [context save:&error];
 
