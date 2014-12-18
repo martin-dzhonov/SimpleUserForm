@@ -39,7 +39,7 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    UIImage *image = [UIImage imageNamed:@"image2.jpg"];
+    UIImage *image = [UIImage imageNamed:@"image4.jpg"];
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
     bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];
