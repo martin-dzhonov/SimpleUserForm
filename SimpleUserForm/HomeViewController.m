@@ -22,16 +22,23 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self._managedContext = appDelegate.managedObjectContext;
-    
+    [self setBackgroundImage];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Account"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"SELF.username == %@", self.username];
     NSArray *results = [self._managedContext executeFetchRequest:fetchRequest error:nil];
     Account* acc = (Account*)[results objectAtIndex:0];
     NSString *title = [acc.gender isEqualToString:@"male"] ? @"Mr." : @"Mrs.";
-    NSString *welcomeString = [NSString stringWithFormat:@"Welcome %@ %@ %@", title, acc.firstName, acc.lastName];
+    NSString *welcomeString = [NSString stringWithFormat:@"%@ %@ %@", title, acc.firstName, acc.lastName];
     self._welcomeLabel.text = welcomeString;
 }
 
+-(void) setBackgroundImage{
+    UIImage *image = [UIImage imageNamed:@"image6.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image2.jpg"]];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
+    bgImageView.frame = self.view.bounds;
+    [self.view addSubview:bgImageView];
+    [self.view sendSubviewToBack:bgImageView];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

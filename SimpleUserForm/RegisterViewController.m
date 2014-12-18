@@ -33,21 +33,12 @@
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self._managedContext = appDelegate.managedObjectContext;
     
-    self.doneButton.enabled = false;
     [self styleButton:self.doneButton];
-    [[UISegmentedControl appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateSelected];
-    self._gender.tintColor = [UIColor greenColor];
-
+    [self setBackgroundImage];
+    [self setSegmentedControlStyle];
+    
     [self._username addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
     [self._password addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
-}
-
--(void) viewWillAppear:(BOOL)animated{
-    UIImage *image = [UIImage imageNamed:@"image6.jpg"];
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
-    bgImageView.frame = self.view.bounds;
-    [self.view addSubview:bgImageView];
-    [self.view sendSubviewToBack:bgImageView];
 }
 
 -(void) checkData:(id)sender{
@@ -63,53 +54,82 @@
     }
     if (isValid) {
         textField.textColor = [UIColor blackColor];
-        if(_usernameValid && _passwordValid){
-            self.doneButton.enabled = true;
-        }
-        else{
-            self.doneButton.enabled = false;
-        }
     }
     else {
         textField.textColor = [UIColor redColor];
-        self.doneButton.enabled= false;
     }
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 - (IBAction)doneTaped:(id)sender {
-    Account *newAccount;
-    newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:self._managedContext];
-    newAccount.firstName = self._firstName.text;
-    newAccount.lastName = self._lastName.text;
-    newAccount.username = self._username.text;
-    [newAccount setPassword:self._password.text];
-    if(self._gender.selectedSegmentIndex == 0){
-        newAccount.gender = @"male";
+    UIButton *button = (UIButton *)sender;
+    button.backgroundColor = [UIColor colorWithRed:0 green:250 blue:50 alpha:0.9];
+    if(!_usernameValid){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry."
+                                                        message:@"Minimum username lenght is 3."                                                  delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
     }
-    else if(self._gender.selectedSegmentIndex == 1){
-        newAccount.gender = @"female";
+    else if(!_passwordValid){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry."
+                                                        message:@"Password must contain special symbol and a number."                                                  delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }
-    NSError *error;
-    [self._managedContext save:&error];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success."
-                                                    message:@"Account registered."                                                  delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-    LoginViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    [self presentViewController:viewController animated:YES completion:nil];
+    else{
+        Account *newAccount;
+        newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:self._managedContext];
+        newAccount.firstName = self._firstName.text;
+        newAccount.lastName = self._lastName.text;
+        newAccount.username = self._username.text;
+        [newAccount setPassword:self._password.text];
+        if(self._gender.selectedSegmentIndex == 0){
+            newAccount.gender = @"male";
+        }
+        else if(self._gender.selectedSegmentIndex == 1){
+            newAccount.gender = @"female";
+        }
+        NSError *error;
+        [self._managedContext save:&error];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success."
+                                                        message:@"Account registered."                                                  delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        LoginViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
+    [button performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:0 green:20 blue:190 alpha:0.5] afterDelay:0.2];
+
 }
+
 -(void)styleButton:(UIButton*) button{
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-    [button setBackgroundColor:[UIColor colorWithRed:0 green:255 blue:0 alpha:0.4]];
+    [button setBackgroundColor:[UIColor colorWithRed:0 green:20 blue:190 alpha:0.5]];
     CALayer *layer = button.layer;
-    layer.borderColor = [[UIColor blackColor] CGColor];
     layer.cornerRadius = 2.0f;
     layer.borderWidth = 1.0f;
+}
+
+-(void)setSegmentedControlStyle{
+
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateSelected];
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateNormal];
+    self._gender.tintColor = [UIColor colorWithRed:0 green:20 blue:200 alpha:0.5];
+}
+
+-(void) setBackgroundImage{
+    UIImage *image = [UIImage imageNamed:@"image6.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image5.jpg"]];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
+    bgImageView.frame = self.view.bounds;
+    [self.view addSubview:bgImageView];
+    [self.view sendSubviewToBack:bgImageView];
 }
 /*
  #pragma mark - Navigation

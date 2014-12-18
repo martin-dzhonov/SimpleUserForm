@@ -30,16 +30,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self._managedContext = appDelegate.managedObjectContext;
-    
-    [self initBackgroundImage];
-    
+    [self setBackgroundImage];
     self.signInButton.enabled = false;
     [self styleButton:self.signInButton];
     [self styleButton:self.signUpButton];
-    
     [self._username addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
     [self._password addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
 }
@@ -69,22 +65,13 @@
         self.signInButton.enabled= false;
     }
 }
--(void) initBackgroundImage{
-    UIImage *image = [UIImage imageNamed:@"image6.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image2.jpg"]];
+
+-(void) setBackgroundImage{
+    UIImage *image = [UIImage imageNamed:@"image6.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image6.jpg"]];
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
     bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];
     [self.view sendSubviewToBack:bgImageView];
-}
-
--(void)styleButton:(UIButton*) button{
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-    [button setBackgroundColor:[UIColor colorWithRed:0 green:255 blue:0 alpha:0.4]];
-    CALayer *layer = button.layer;
-    layer.borderColor = [[UIColor blackColor] CGColor];
-    layer.cornerRadius = 2.0f;
-    layer.borderWidth = 1.0f;
 }
 
 - (IBAction)signInTaped:(id)sender {
@@ -103,6 +90,17 @@
 }
 
 - (IBAction)signUpTaped:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    button.backgroundColor = [UIColor colorWithRed:0 green:200 blue:50 alpha:0.9];
+}
+
+-(void)styleButton:(UIButton*) button{
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor colorWithRed:15 green:15 blue:15 alpha:0.3] forState:UIControlStateDisabled];
+    [button setBackgroundColor:[UIColor colorWithRed:0 green:20 blue:190 alpha:0.5]];
+    CALayer *layer = button.layer;
+    layer.cornerRadius = 2.0f;
+    layer.borderWidth = 1.0f;
 }
 
 - (void)didReceiveMemoryWarning {
