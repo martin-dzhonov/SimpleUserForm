@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "AppDelegate.h"
+#import "Account.h"
 
 @interface LoginViewController ()
 
@@ -16,7 +18,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+}
+- (IBAction)saveTaped:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = appDelegate.managedObjectContext;
+    Account *newAccount;
+    newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:context];
+    [newAccount setValue:@"ASD" forKey:@"username"];
+    NSError *error;
+    [context save:&error];
+}
+- (IBAction)fetchTaped:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = appDelegate.managedObjectContext;
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Account"];
+    
+    NSError *error = nil;
+    
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    
+    if (error != nil) {
+        
+        NSLog(@"ERROR");
+    }
+    else {
+        for (int i=0; i < results.count; i++) {
+            Account* acc = (Account*)[results objectAtIndex:i];
+            NSLog(@"%@", [acc valueForKey:@"firstName"]);
+        }
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
