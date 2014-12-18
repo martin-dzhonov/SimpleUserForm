@@ -22,13 +22,14 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* context = appDelegate.managedObjectContext;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Account"];
     
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Account"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"SELF.username == %@", self.username];
     NSArray *results = [context executeFetchRequest:fetchRequest error:nil];
     Account* acc = (Account*)[results objectAtIndex:0];
-    self._welcomeLabel.text = acc.username;
-    // Do any additional setup after loading the view.
+    NSString *title = [acc.gender isEqualToString:@"male"] ? @"Mr." : @"Mrs.";
+    NSString *welcomeString = [NSString stringWithFormat:@"Welcome %@ %@ %@", title, acc.firstName, acc.lastName];
+    self._welcomeLabel.text = welcomeString;
 }
 
 - (void)didReceiveMemoryWarning {

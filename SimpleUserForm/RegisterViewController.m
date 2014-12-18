@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "Account.h"
 @interface RegisterViewController ()
-
+@property (strong, nonatomic) NSManagedObjectContext* _managedContext;
 @property (weak, nonatomic) IBOutlet UITextField *_firstName;
 @property (weak, nonatomic) IBOutlet UITextField *_lastName;
 @property (weak, nonatomic) IBOutlet UITextField *_username;
@@ -22,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    self._managedContext = appDelegate.managedObjectContext;
     [self._firstName addTarget:self action:@selector(checkTextField:) forControlEvents:UIControlEventEditingChanged];
     // Do any additional setup after loading the view.
 }
@@ -40,10 +42,8 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)doneTaped:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext* context = appDelegate.managedObjectContext;
     Account *newAccount;
-    newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:context];
+    newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:self._managedContext];
     newAccount.firstName = self._firstName.text;
     newAccount.lastName = self._lastName.text;
     newAccount.username = self._username.text;
@@ -55,8 +55,7 @@
         newAccount.gender = @"female";
     }
     NSError *error;
-    [context save:&error];
-
+    [self._managedContext save:&error];
 }
 
 /*

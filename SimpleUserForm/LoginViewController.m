@@ -12,6 +12,7 @@
 #import "KeychainHelper.h"
 #import "HomeViewController.h"
 @interface LoginViewController ()
+@property (strong, nonatomic) NSManagedObjectContext* _managedContext;
 @property (weak, nonatomic) IBOutlet UITextField *_username;
 @property (weak, nonatomic) IBOutlet UITextField *_password;
 @end
@@ -20,12 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    self._managedContext = appDelegate.managedObjectContext;
     // Do any additional setup after loading the view.
 }
 - (IBAction)signInTaped:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext* context = appDelegate.managedObjectContext;
     if([[KeychainHelper secureValueForKey:self._username.text] isEqualToString:self._password.text]){
         
         HomeViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
@@ -39,32 +39,28 @@
 - (IBAction)signUpTaped:(id)sender {
 }
 - (IBAction)clearTaped:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext* context = appDelegate.managedObjectContext;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Account"];
     [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
     
     NSError *error;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    NSArray *fetchedObjects = [self._managedContext executeFetchRequest:fetchRequest error:&error];
     for (NSManagedObject *object in fetchedObjects)
     {
-        [context deleteObject:object];
+        [self._managedContext deleteObject:object];
     }
     
     error = nil;
-    [context save:&error];
+    [self._managedContext save:&error];
 }
 - (IBAction)saveTaped:(id)sender {
     
 }
 - (IBAction)fetchTaped:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext* context = appDelegate.managedObjectContext;
     NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Account"];
     
     NSError *error = nil;
     
-    NSArray *results = [context executeFetchRequest:request error:&error];
+    NSArray *results = [self._managedContext executeFetchRequest:request error:&error];
     
     if (error != nil) {
         
