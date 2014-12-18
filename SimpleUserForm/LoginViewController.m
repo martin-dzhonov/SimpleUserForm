@@ -38,10 +38,35 @@
     self.signInButton.enabled = false;
     [self styleButton:self.signInButton];
     
-    [self._username addTarget:self action:@selector(checkUsername:) forControlEvents:UIControlEventEditingChanged];
-    [self._password addTarget:self action:@selector(checkPassword:) forControlEvents:UIControlEventEditingChanged];
+    [self._username addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
+    [self._password addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
 }
 
+-(void) checkData:(id)sender{
+    UITextField *textField = (UITextField *)sender;
+    BOOL isValid;
+    if(textField.tag == 0){
+        isValid =[AccountValidator validateUsername:textField.text];
+        _usernameValid = isValid;
+    }
+    else if(textField.tag == 1) {
+        isValid = [AccountValidator validatePassword:textField.text];
+        _passwordValid = isValid;
+    }
+    if (isValid) {
+        textField.textColor = [UIColor blackColor];
+        if(_usernameValid && _passwordValid){
+            self.signInButton.enabled = true;
+        }
+        else{
+            self.signInButton.enabled = false;
+        }
+    }
+    else {
+        textField.textColor = [UIColor redColor];
+        self.signInButton.enabled= false;
+    }
+}
 -(void) initBackgroundImage{
     UIImage *image = [UIImage imageNamed:@"image1.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image2.jpg"]];
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
@@ -59,35 +84,6 @@
     layer.borderWidth = 1.0f;
 }
 
--(void)checkUsername:(id)sender{
-    UITextField *textField = (UITextField *)sender;
-    BOOL isValid = [AccountValidator validateUsername:textField.text];
-    if (isValid) {
-        textField.textColor = [UIColor blackColor];
-        _usernameValid = true;
-        if(_usernameValid && _passwordValid){
-            self.signInButton.enabled = true;
-        }
-    } else {
-        textField.textColor = [UIColor redColor];
-        self.signInButton.enabled= false;
-    }
-}
-
-- (void)checkPassword:(id)sender{
-    UITextField *textField = (UITextField *)sender;
-    BOOL isValid = [AccountValidator validatePassword:textField.text];
-    if (isValid) {
-        textField.textColor = [UIColor blackColor];
-        _passwordValid = true;
-        if(_passwordValid && _usernameValid){
-            self.signInButton.enabled = true;
-        }
-    } else {
-        textField.textColor = [UIColor redColor];
-        self.signInButton.enabled = true;
-    }
-}
 - (IBAction)signInTaped:(id)sender {
     if([[KeychainHelper secureValueForKey:self._username.text] isEqualToString:self._password.text]){
         HomeViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
@@ -108,13 +104,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

@@ -13,8 +13,8 @@
 #import "ImageHelper.h"
 @interface RegisterViewController ()
 {
-    BOOL userNameValid;
-    BOOL passwordValid;
+    BOOL _usernameValid;
+    BOOL _passwordValid;
 }
 @property (strong, nonatomic) NSManagedObjectContext * _managedContext;
 @property (weak, nonatomic) IBOutlet UITextField *_firstName;
@@ -31,9 +31,11 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self._managedContext = appDelegate.managedObjectContext;
+    
     self.doneButton.enabled = false;
-    [self._username addTarget:self action:@selector(checkUsername:) forControlEvents:UIControlEventEditingChanged];
-    [self._password addTarget:self action:@selector(checkPassword:) forControlEvents:UIControlEventEditingChanged];
+    
+    [self._username addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
+    [self._password addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -44,30 +46,29 @@
     [self.view sendSubviewToBack:bgImageView];
 }
 
--(void)checkUsername:(id)sender{
+-(void) checkData:(id)sender{
     UITextField *textField = (UITextField *)sender;
-    BOOL isValid = [AccountValidator validateUsername:textField.text];
-    if (isValid) {
-        textField.textColor = [UIColor blackColor];
-        userNameValid = true;
-        if(userNameValid && passwordValid){
-            self.doneButton.enabled = true;
-        }
-    } else {
-        textField.textColor = [UIColor redColor];
+    BOOL isValid;
+    if(textField.tag == 0){
+        isValid =[AccountValidator validateUsername:textField.text];
+        _usernameValid = isValid;
     }
-}
-- (void)checkPassword:(id)sender{
-    UITextField *textField = (UITextField *)sender;
-    BOOL isValid = [AccountValidator validatePassword:textField.text];
+    else if(textField.tag == 1) {
+        isValid = [AccountValidator validatePassword:textField.text];
+        _passwordValid = isValid;
+    }
     if (isValid) {
         textField.textColor = [UIColor blackColor];
-        passwordValid = true;
-        if(passwordValid && userNameValid){
+        if(_usernameValid && _passwordValid){
             self.doneButton.enabled = true;
         }
-    } else {
+        else{
+            self.doneButton.enabled = false;
+        }
+    }
+    else {
         textField.textColor = [UIColor redColor];
+        self.doneButton.enabled= false;
     }
 }
 - (void)didReceiveMemoryWarning {
