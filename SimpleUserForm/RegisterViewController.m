@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *_lastName;
 @property (weak, nonatomic) IBOutlet UITextField *_username;
 @property (weak, nonatomic) IBOutlet UITextField *_password;
-
+@property (weak, nonatomic) IBOutlet UISegmentedControl *_gender;
 @end
 
 @implementation RegisterViewController
@@ -37,6 +37,12 @@
     newAccount.lastName = self._lastName.text;
     newAccount.username = self._username.text;
     [newAccount setPassword:self._password.text];
+    if(self._gender.selectedSegmentIndex == 0){
+        newAccount.gender = @"male";
+    }
+    else if(self._gender.selectedSegmentIndex == 1){
+        newAccount.gender = @"female";
+    }
     NSError *error;
     [context save:&error];
 

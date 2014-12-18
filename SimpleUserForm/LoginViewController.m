@@ -11,6 +11,8 @@
 #import "Account.h"
 #import "KeychainHelper.h"
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *_username;
+@property (weak, nonatomic) IBOutlet UITextField *_password;
 
 @end
 
@@ -21,8 +23,34 @@
     
     // Do any additional setup after loading the view.
 }
+- (IBAction)signInTaped:(id)sender {
+    if([[KeychainHelper secureValueForKey:self._username.text] isEqualToString:self._password.text]){
+        NSLog(@"LOGIN SUCESS");
+    }
+    else{
+        NSLog(@"FAIL");
+    }
+}
+- (IBAction)signUpTaped:(id)sender {
+}
+- (IBAction)clearTaped:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = appDelegate.managedObjectContext;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Account"];
+    [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *object in fetchedObjects)
+    {
+        [context deleteObject:object];
+    }
+    
+    error = nil;
+    [context save:&error];
+}
 - (IBAction)saveTaped:(id)sender {
-    [KeychainHelper setSecureValue:@"TESTVALUE" forKey:@"TESTKEY"];
+    
 }
 - (IBAction)fetchTaped:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
@@ -40,7 +68,7 @@
     else {
         for (int i=0; i < results.count; i++) {
             Account* acc = (Account*)[results objectAtIndex:i];
-            NSLog(@"%@", [acc password]);
+            NSLog(@"%@", [acc valueForKey:@"gender"]);
         }
     }
 
