@@ -68,9 +68,11 @@
 - (IBAction)doneTaped:(id)sender {
     UIButton *button = (UIButton *)sender;
     button.backgroundColor = [UIColor colorWithRed:0 green:250 blue:50 alpha:0.9];
-    if(!_usernameValid){
+    if(self._firstName.text.length == 0 || self._lastName.text.length == 0){
+        [AlertHelper showAlert:@"Sorry" withMessage:@"Full name is required."];
+    }
+    else if(!_usernameValid){
         [AlertHelper showAlert:@"Sorry" withMessage:@"Minimum username lenght is 3."];
-
     }
     else if(!_passwordValid){
         [AlertHelper showAlert:@"Sorry" withMessage:@"Password minimum lenght is 8 and should contain number and a special symbol."];
