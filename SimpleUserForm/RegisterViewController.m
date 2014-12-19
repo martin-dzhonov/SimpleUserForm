@@ -120,7 +120,7 @@
 -(void) setBackgroundImage{
     UIImage *image = [UIImage imageNamed:@"image6.jpg"];
     //Uncomment to blur the image programatically
-    //UIImage *image = [ImageHelper blurImage:[UIImage imageNamed:@"image6.jpg"]];
+    //UIImage *image = [ImageHelper blurImage:[UIImage imageNamed:@"image5.jpg"]];
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
     bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];

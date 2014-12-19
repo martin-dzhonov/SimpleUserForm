@@ -15,7 +15,7 @@
     CIImage *inputImage = [CIImage imageWithCGImage:theImage.CGImage];
     CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
     [filter setValue:inputImage forKey:kCIInputImageKey];
-    [filter setValue:[NSNumber numberWithFloat:5.0f] forKey:@"inputRadius"];
+    [filter setValue:[NSNumber numberWithFloat:3.0f] forKey:@"inputRadius"];
     CIImage *result = [filter valueForKey:kCIOutputImageKey];
     CGImageRef cgImage = [context createCGImage:result fromRect:[inputImage extent]];
     UIImage *returnImage = [UIImage imageWithCGImage:cgImage];

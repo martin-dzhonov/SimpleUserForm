@@ -17,6 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999973" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Kh-XO-vXi">
+                                <rect key="frame" x="194" y="153" width="212" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="212" id="hZW-OJ-K7G"/>
+                                    <constraint firstAttribute="height" constant="30" id="q1g-zC-evS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDs-Z5-diD">
                                 <rect key="frame" x="194" y="247" width="212" height="30"/>
                                 <constraints>
@@ -31,8 +40,16 @@
                                     <action selector="signInTaped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="55k-4c-hvR"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999973" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d7I-2t-EgA">
+                                <rect key="frame" x="194" y="202" width="212" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Emw-WO-gsz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSL-f2-tkQ">
-                                <rect key="frame" x="194" y="285" width="212" height="30"/>
+                                <rect key="frame" x="194" y="291" width="212" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Register">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,23 +59,6 @@
                                     <segue destination="eFk-vZ-juc" kind="show" id="hXx-K4-DmK"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999973" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d7I-2t-EgA">
-                                <rect key="frame" x="194" y="202" width="212" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Emw-WO-gsz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999973" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Kh-XO-vXi">
-                                <rect key="frame" x="194" y="153" width="212" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="212" id="hZW-OJ-K7G"/>
-                                    <constraint firstAttribute="height" constant="30" id="q1g-zC-evS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -67,7 +67,7 @@
                             <constraint firstItem="mDs-Z5-diD" firstAttribute="top" secondItem="d7I-2t-EgA" secondAttribute="bottom" constant="15" id="L2v-Rw-B0Q"/>
                             <constraint firstItem="qSL-f2-tkQ" firstAttribute="leading" secondItem="mDs-Z5-diD" secondAttribute="leading" id="VM3-aj-hiM"/>
                             <constraint firstItem="1Kh-XO-vXi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="133" id="XkR-PY-E3N"/>
-                            <constraint firstItem="qSL-f2-tkQ" firstAttribute="top" secondItem="mDs-Z5-diD" secondAttribute="bottom" constant="8" id="aIb-H6-8Pk"/>
+                            <constraint firstItem="qSL-f2-tkQ" firstAttribute="top" secondItem="mDs-Z5-diD" secondAttribute="bottom" constant="14" id="aIb-H6-8Pk"/>
                             <constraint firstItem="mDs-Z5-diD" firstAttribute="trailing" secondItem="d7I-2t-EgA" secondAttribute="trailing" id="eGB-EH-JeB"/>
                             <constraint firstItem="1Kh-XO-vXi" firstAttribute="trailing" secondItem="d7I-2t-EgA" secondAttribute="trailing" id="frJ-Od-BqT"/>
                             <constraint firstItem="mDs-Z5-diD" firstAttribute="trailing" secondItem="qSL-f2-tkQ" secondAttribute="trailing" id="jyS-4W-JIz"/>
