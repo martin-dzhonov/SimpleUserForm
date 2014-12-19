@@ -6,22 +6,22 @@
 //  Copyright (c) 2014 Gosho Goshev. All rights reserved.
 //
 
-#import "LoginViewController.h"
 #import "AppDelegate.h"
-#import "Account.h"
-#import "KeychainHelper.h"
 #import "HomeViewController.h"
+#import "LoginViewController.h"
+#import "Account.h"
+#import "AlertHelper.h"
+#import "KeychainHelper.h"
 #import "AccountValidator.h"
-#import "ImageHelper.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface LoginViewController (){
     BOOL _usernameValid;
     BOOL _passwordValid;
 }
+@property (strong, nonatomic) NSManagedObjectContext* _managedContext;
 @property (weak, nonatomic) IBOutlet UIButton *signInButton;
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
-@property (strong, nonatomic) NSManagedObjectContext* _managedContext;
 @property (weak, nonatomic) IBOutlet UITextField *_username;
 @property (weak, nonatomic) IBOutlet UITextField *_password;
 @end
@@ -32,10 +32,12 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self._managedContext = appDelegate.managedObjectContext;
+    
     [self setBackgroundImage];
     self.signInButton.enabled = false;
     [self styleButton:self.signInButton];
     [self styleButton:self.signUpButton];
+    
     [self._username addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
     [self._password addTarget:self action:@selector(checkData:) forControlEvents:UIControlEventEditingChanged];
 }
@@ -66,14 +68,6 @@
     }
 }
 
--(void) setBackgroundImage{
-    UIImage *image = [UIImage imageNamed:@"image6.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image6.jpg"]];
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
-    bgImageView.frame = self.view.bounds;
-    [self.view addSubview:bgImageView];
-    [self.view sendSubviewToBack:bgImageView];
-}
-
 - (IBAction)signInTaped:(id)sender {
     if([[KeychainHelper secureValueForKey:self._username.text] isEqualToString:self._password.text]){
         HomeViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
@@ -81,17 +75,23 @@
         [self presentViewController:viewController animated:YES completion:nil];
     }
     else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error."
-                                                        message:@"Invalid username/password."                                                  delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+        [AlertHelper showAlert:@"Error" withMessage:@"Invalid username/password"];
     }
 }
 
 - (IBAction)signUpTaped:(id)sender {
     UIButton *button = (UIButton *)sender;
     button.backgroundColor = [UIColor colorWithRed:0 green:200 blue:50 alpha:0.9];
+}
+
+-(void) setBackgroundImage{
+    UIImage *image = [UIImage imageNamed:@"image6.jpg"];
+    //Uncomment to blur the image programatically
+    //UIImage *image = [ImageHelper blurImage:[UIImage imageNamed:@"image6.jpg"]];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
+    bgImageView.frame = self.view.bounds;
+    [self.view addSubview:bgImageView];
+    [self.view sendSubviewToBack:bgImageView];
 }
 
 -(void)styleButton:(UIButton*) button{
@@ -105,17 +105,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

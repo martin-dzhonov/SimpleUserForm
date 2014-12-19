@@ -6,12 +6,13 @@
 //  Copyright (c) 2014 Gosho Goshev. All rights reserved.
 //
 
-#import "RegisterViewController.h"
 #import "AppDelegate.h"
+#import "RegisterViewController.h"
+#import "LoginViewController.h"
 #import "Account.h"
 #import "AccountValidator.h"
-#import "ImageHelper.h"
-#import "LoginViewController.h"
+#import "AlertHelper.h"
+
 @interface RegisterViewController ()
 {
     BOOL _usernameValid;
@@ -68,19 +69,11 @@
     UIButton *button = (UIButton *)sender;
     button.backgroundColor = [UIColor colorWithRed:0 green:250 blue:50 alpha:0.9];
     if(!_usernameValid){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry."
-                                                        message:@"Minimum username lenght is 3."                                                  delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+        [AlertHelper showAlert:@"Sorry" withMessage:@"Minimum username lenght is 3."];
 
     }
     else if(!_passwordValid){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry."
-                                                        message:@"Password minimum lenght is 8 and should contain number and a special symbol."                                                  delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+        [AlertHelper showAlert:@"Sorry" withMessage:@"Password minimum lenght is 8 and should contain number and a special symbol."];
     }
     else{
         Account *newAccount;
@@ -95,13 +88,12 @@
         else if(self._gender.selectedSegmentIndex == 1){
             newAccount.gender = @"female";
         }
+        
         NSError *error;
         [self._managedContext save:&error];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success."
-                                                        message:@"Account registered."                                                  delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+        
+        [AlertHelper showAlert:@"Success" withMessage:@"Account registered."];
+        
         LoginViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
         [self presentViewController:viewController animated:YES completion:nil];
     }
@@ -118,27 +110,19 @@
 }
 
 -(void)setSegmentedControlStyle{
-
     [[UISegmentedControl appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateSelected];
     [[UISegmentedControl appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateNormal];
     self._gender.tintColor = [UIColor colorWithRed:0 green:20 blue:200 alpha:0.5];
 }
 
 -(void) setBackgroundImage{
-    UIImage *image = [UIImage imageNamed:@"image6.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image5.jpg"]];
+    UIImage *image = [UIImage imageNamed:@"image6.jpg"];
+    //Uncomment to blur the image programatically
+    //UIImage *image = [ImageHelper blurImage:[UIImage imageNamed:@"image6.jpg"]];
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
     bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];
     [self.view sendSubviewToBack:bgImageView];
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

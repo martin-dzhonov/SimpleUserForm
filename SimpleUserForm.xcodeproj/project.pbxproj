@@ -9,14 +9,9 @@
 /* Begin PBXBuildFile section */
 		200478071A42FA7A0058510C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 200478061A42FA7A0058510C /* HomeViewController.m */; };
 		208431EB1A42E94600E77A5A /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 208431EA1A42E94600E77A5A /* KeychainHelper.m */; };
-		209C14601A43666F00F3A0DA /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 209C145F1A43666F00F3A0DA /* image3.jpg */; };
-		209C14621A43705E00F3A0DA /* image4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 209C14611A43705E00F3A0DA /* image4.jpg */; };
-		209C14641A4372BA00F3A0DA /* image5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 209C14631A4372BA00F3A0DA /* image5.jpg */; };
-		209C14661A437BF700F3A0DA /* image7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 209C14651A437BF700F3A0DA /* image7.jpg */; };
+		209AC5961A43A88A007DCC0D /* AlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 209AC5951A43A88A007DCC0D /* AlertHelper.m */; };
 		209C14681A437C7000F3A0DA /* image6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 209C14671A437C7000F3A0DA /* image6.jpg */; };
 		209D4FE11A43250300D97E9B /* AccountValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 209D4FE01A43250300D97E9B /* AccountValidator.m */; };
-		209D4FE31A4333F700D97E9B /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 209D4FE21A4333F700D97E9B /* image1.jpg */; };
-		209D4FE51A43397B00D97E9B /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 209D4FE41A43397B00D97E9B /* image2.jpg */; };
 		209D4FE81A4339B000D97E9B /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 209D4FE71A4339B000D97E9B /* ImageHelper.m */; };
 		20A0B6891A42DD2800E40306 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0B6881A42DD2800E40306 /* Account.m */; };
 		20A0B68C1A42E3EC00E40306 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0B68B1A42E3EC00E40306 /* RegisterViewController.m */; };
@@ -45,15 +40,11 @@
 		200478061A42FA7A0058510C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		208431E91A42E94600E77A5A /* KeychainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainHelper.h; sourceTree = "<group>"; };
 		208431EA1A42E94600E77A5A /* KeychainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainHelper.m; sourceTree = "<group>"; };
-		209C145F1A43666F00F3A0DA /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
-		209C14611A43705E00F3A0DA /* image4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image4.jpg; sourceTree = "<group>"; };
-		209C14631A4372BA00F3A0DA /* image5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image5.jpg; sourceTree = "<group>"; };
-		209C14651A437BF700F3A0DA /* image7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image7.jpg; sourceTree = "<group>"; };
+		209AC5941A43A88A007DCC0D /* AlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertHelper.h; sourceTree = "<group>"; };
+		209AC5951A43A88A007DCC0D /* AlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertHelper.m; sourceTree = "<group>"; };
 		209C14671A437C7000F3A0DA /* image6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image6.jpg; sourceTree = "<group>"; };
 		209D4FDF1A43250300D97E9B /* AccountValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountValidator.h; sourceTree = "<group>"; };
 		209D4FE01A43250300D97E9B /* AccountValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountValidator.m; sourceTree = "<group>"; };
-		209D4FE21A4333F700D97E9B /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
-		209D4FE41A43397B00D97E9B /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
 		209D4FE61A4339B000D97E9B /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
 		209D4FE71A4339B000D97E9B /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
 		20A0B6871A42DD2800E40306 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
@@ -110,13 +101,7 @@
 		209D4FEA1A43447A00D97E9B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				209C14651A437BF700F3A0DA /* image7.jpg */,
 				209C14671A437C7000F3A0DA /* image6.jpg */,
-				209C14631A4372BA00F3A0DA /* image5.jpg */,
-				209C14611A43705E00F3A0DA /* image4.jpg */,
-				209C145F1A43666F00F3A0DA /* image3.jpg */,
-				209D4FE41A43397B00D97E9B /* image2.jpg */,
-				209D4FE21A4333F700D97E9B /* image1.jpg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -124,6 +109,8 @@
 		209D4FEB1A43449F00D97E9B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				209AC5941A43A88A007DCC0D /* AlertHelper.h */,
+				209AC5951A43A88A007DCC0D /* AlertHelper.m */,
 				208431E91A42E94600E77A5A /* KeychainHelper.h */,
 				208431EA1A42E94600E77A5A /* KeychainHelper.m */,
 				209D4FDF1A43250300D97E9B /* AccountValidator.h */,
@@ -278,13 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20AF203F1A4218BC00E11CCC /* Main.storyboard in Resources */,
-				209C14641A4372BA00F3A0DA /* image5.jpg in Resources */,
-				209C14661A437BF700F3A0DA /* image7.jpg in Resources */,
-				209D4FE51A43397B00D97E9B /* image2.jpg in Resources */,
-				209D4FE31A4333F700D97E9B /* image1.jpg in Resources */,
-				209C14601A43666F00F3A0DA /* image3.jpg in Resources */,
 				209C14681A437C7000F3A0DA /* image6.jpg in Resources */,
-				209C14621A43705E00F3A0DA /* image4.jpg in Resources */,
 				20AF20441A4218BC00E11CCC /* LaunchScreen.xib in Resources */,
 				20AF20411A4218BC00E11CCC /* Images.xcassets in Resources */,
 			);
@@ -313,6 +294,7 @@
 				20AF20391A4218BC00E11CCC /* SimpleUserForm.xcdatamodeld in Sources */,
 				200478071A42FA7A0058510C /* HomeViewController.m in Sources */,
 				209D4FE11A43250300D97E9B /* AccountValidator.m in Sources */,
+				209AC5961A43A88A007DCC0D /* AlertHelper.m in Sources */,
 				209D4FE81A4339B000D97E9B /* ImageHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

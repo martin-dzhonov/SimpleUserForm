@@ -22,7 +22,9 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self._managedContext = appDelegate.managedObjectContext;
+    
     [self setBackgroundImage];
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Account"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"SELF.username == %@", self.username];
     NSArray *results = [self._managedContext executeFetchRequest:fetchRequest error:nil];
@@ -33,7 +35,9 @@
 }
 
 -(void) setBackgroundImage{
-    UIImage *image = [UIImage imageNamed:@"image6.jpg"];//[ImageHelper blurImage:[UIImage imageNamed:@"image2.jpg"]];
+    UIImage *image = [UIImage imageNamed:@"image6.jpg"];
+    //Uncomment to blur the image programatically
+    //UIImage *image = [ImageHelper blurImage:[UIImage imageNamed:@"image6.jpg"]];
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:image];
     bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];
@@ -41,17 +45,6 @@
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
