@@ -77,7 +77,7 @@
     }
     else if(!_passwordValid){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry."
-                                                        message:@"Password must contain special symbol and a number."                                                  delegate:nil
+                                                        message:@"Password minimum lenght is 8 and should contain number and a special symbol."                                                  delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];

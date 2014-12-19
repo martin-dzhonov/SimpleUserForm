@@ -28,7 +28,7 @@
     NSArray *results = [self._managedContext executeFetchRequest:fetchRequest error:nil];
     Account* acc = (Account*)[results objectAtIndex:0];
     NSString *title = [acc.gender isEqualToString:@"male"] ? @"Mr." : @"Mrs.";
-    NSString *welcomeString = [NSString stringWithFormat:@"%@ %@ %@", title, acc.firstName, acc.lastName];
+    NSString *welcomeString = [NSString stringWithFormat:@"Hello %@ %@ %@", title, acc.firstName, acc.lastName];
     self._welcomeLabel.text = welcomeString;
 }
 

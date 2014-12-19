@@ -17,17 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.79999999999999982" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Kh-XO-vXi">
-                                <rect key="frame" x="194" y="153" width="212" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="212" id="hZW-OJ-K7G"/>
-                                    <constraint firstAttribute="height" constant="30" id="q1g-zC-evS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDs-Z5-diD">
-                                <rect key="frame" x="194" y="246" width="212" height="30"/>
+                                <rect key="frame" x="194" y="247" width="212" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="jDW-hk-a06"/>
                                 </constraints>
@@ -41,7 +32,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSL-f2-tkQ">
-                                <rect key="frame" x="194" y="289" width="212" height="30"/>
+                                <rect key="frame" x="194" y="285" width="212" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Register">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,7 +42,7 @@
                                     <segue destination="eFk-vZ-juc" kind="show" id="hXx-K4-DmK"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.79999999999999982" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d7I-2t-EgA">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999973" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d7I-2t-EgA">
                                 <rect key="frame" x="194" y="202" width="212" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Emw-WO-gsz"/>
@@ -59,15 +50,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999973" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Kh-XO-vXi">
+                                <rect key="frame" x="194" y="153" width="212" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="212" id="hZW-OJ-K7G"/>
+                                    <constraint firstAttribute="height" constant="30" id="q1g-zC-evS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1Kh-XO-vXi" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Bdw-LM-oxA"/>
                             <constraint firstItem="d7I-2t-EgA" firstAttribute="top" secondItem="1Kh-XO-vXi" secondAttribute="bottom" constant="19" id="CWC-8M-sFb"/>
-                            <constraint firstItem="mDs-Z5-diD" firstAttribute="top" secondItem="d7I-2t-EgA" secondAttribute="bottom" constant="14" id="L2v-Rw-B0Q"/>
+                            <constraint firstItem="mDs-Z5-diD" firstAttribute="top" secondItem="d7I-2t-EgA" secondAttribute="bottom" constant="15" id="L2v-Rw-B0Q"/>
                             <constraint firstItem="qSL-f2-tkQ" firstAttribute="leading" secondItem="mDs-Z5-diD" secondAttribute="leading" id="VM3-aj-hiM"/>
                             <constraint firstItem="1Kh-XO-vXi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="133" id="XkR-PY-E3N"/>
-                            <constraint firstItem="qSL-f2-tkQ" firstAttribute="top" secondItem="mDs-Z5-diD" secondAttribute="bottom" constant="13" id="aIb-H6-8Pk"/>
+                            <constraint firstItem="qSL-f2-tkQ" firstAttribute="top" secondItem="mDs-Z5-diD" secondAttribute="bottom" constant="8" id="aIb-H6-8Pk"/>
                             <constraint firstItem="mDs-Z5-diD" firstAttribute="trailing" secondItem="d7I-2t-EgA" secondAttribute="trailing" id="eGB-EH-JeB"/>
                             <constraint firstItem="1Kh-XO-vXi" firstAttribute="trailing" secondItem="d7I-2t-EgA" secondAttribute="trailing" id="frJ-Od-BqT"/>
                             <constraint firstItem="mDs-Z5-diD" firstAttribute="trailing" secondItem="qSL-f2-tkQ" secondAttribute="trailing" id="jyS-4W-JIz"/>
@@ -98,32 +98,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00L-mR-Trv">
-                                <rect key="frame" x="247" y="168" width="107" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="Od0-rl-89r"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mt8-tw-Kla">
-                                <rect key="frame" x="146" y="207" width="308" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="308" id="lKQ-Ow-ArL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mt8-tw-Kla">
+                                <rect key="frame" x="16" y="283" width="568" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="00L-mR-Trv" firstAttribute="centerX" secondItem="41o-n5-bTC" secondAttribute="centerX" id="2ag-U1-ZeG"/>
-                            <constraint firstItem="00L-mR-Trv" firstAttribute="centerX" secondItem="Mt8-tw-Kla" secondAttribute="centerX" id="3KB-yZ-Qhe"/>
-                            <constraint firstItem="ECN-W9-WnE" firstAttribute="top" secondItem="Mt8-tw-Kla" secondAttribute="bottom" constant="372" id="vYL-sb-zLY"/>
-                            <constraint firstItem="00L-mR-Trv" firstAttribute="top" secondItem="3c4-eC-G9e" secondAttribute="bottom" constant="148" id="x1D-cB-yQK"/>
-                            <constraint firstItem="Mt8-tw-Kla" firstAttribute="top" secondItem="00L-mR-Trv" secondAttribute="bottom" constant="8" symbolic="YES" id="y21-bv-ekg"/>
+                            <constraint firstItem="Mt8-tw-Kla" firstAttribute="centerY" secondItem="41o-n5-bTC" secondAttribute="centerY" id="3V2-kp-Rz2"/>
+                            <constraint firstItem="Mt8-tw-Kla" firstAttribute="trailing" secondItem="41o-n5-bTC" secondAttribute="trailingMargin" id="6og-LP-GyI"/>
+                            <constraint firstItem="Mt8-tw-Kla" firstAttribute="top" secondItem="3c4-eC-G9e" secondAttribute="bottom" constant="263" id="BfI-Gf-NGM"/>
+                            <constraint firstItem="Mt8-tw-Kla" firstAttribute="leading" secondItem="41o-n5-bTC" secondAttribute="leadingMargin" id="ZdQ-a7-NF9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -146,15 +133,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.74999999999999978" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3jK-TP-1PP">
-                                <rect key="frame" x="176" y="28" width="152" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="152" id="Dg4-kY-miu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.74999999999999978" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3g-8o-1xk">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999973" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3g-8o-1xk">
                                 <rect key="frame" x="16" y="66" width="152" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -169,7 +148,7 @@
                                     <segment title="Female"/>
                                 </segments>
                             </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.74999999999999978" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lJD-EM-Uc5">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999973" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lJD-EM-Uc5">
                                 <rect key="frame" x="16" y="104" width="152" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -183,10 +162,18 @@
                                     <action selector="doneTaped:" destination="eFk-vZ-juc" eventType="touchUpInside" id="Fxy-Ya-XXU"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.74999999999999978" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r3l-W2-2N6">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999973" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r3l-W2-2N6">
                                 <rect key="frame" x="16" y="28" width="152" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="152" id="Guu-eH-hoD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999973" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3jK-TP-1PP">
+                                <rect key="frame" x="176" y="28" width="152" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="152" id="Dg4-kY-miu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
